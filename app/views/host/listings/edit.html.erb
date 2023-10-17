@@ -1,0 +1,17 @@
+<%= render partial: "shared/errors"%>
+
+<form action="<%= host_listing_path(@listing) %>" method = "post">
+	<input type="hidden" name ="authenticity_token" value="<%= form_authenticity_token%>">
+	<input type="hidden" name="_method" value="PUT">
+
+	<label for ="title">Title</label>
+	<input type="text" name="listing[title]" id="title" value="<%= @listing.title%>">
+
+	<label for ="about">About</label>
+	<textarea name="listing[about]" id="about"><%= @listing.about%></textarea>
+
+	<label for ="title">How many people max can stay?</label>
+	<input type="number" id="max_guests" value="<%= @listing.max_guests%>" min= "1" max = "100">
+
+	<input type="submit" value="Update Listing">
+</form>
